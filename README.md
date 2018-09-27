@@ -1,14 +1,17 @@
 # lucid
 long-read ultra-conserved integrated DNA assembler
 
-## To-do 
+## Temporary pipeline 
 
 ### Filtering
-* Remove adapters (or use porechop?) 
-* Trim by Q from edges
-* Remove reads by mean Q
-* Min/max length
-* Remove DNA CS 
+* Trim Q from edges, filter by Q (NanoPack)
+* Remove DNA CS (Nanopack)
+* Remove adapters (Vanilla porechop)
+* Remove illumina adapters and place in headers (LR-UCE_Porechop)
+python3 LR-UCE_Porechop/porechop-runner.py -i lr_uce_noCS_chop_filt-q10.fastq --skip_barcodes --write_adapters --exclude_untrimmed -o tlr_uce_noCS_chop_filt-q10_ILL.fastq
+* Sort by barcode (LR-UCE_Porechop)
+
+
 
 ### Demultiplexing/ error rates
 * Trim off Illumina adapters - use to estimate per-base error rates
